@@ -113,6 +113,24 @@ public class CourierService(DataContext context, Mapper mapper) : ICourierServic
         return new Response<List<GetCourierDto>>(data);
 
     }
+    //task_19
+    public async Task<Response<List<CouriersPerformanceDto>>> CouriersPerformance()
+    {
+        var cur = await context.Orders.Where(o => o.DeliveredAt != null)
+        .Join(context.Couriers,
+        o => o.CourierId, c => c.Id,
+        (o, c) => new { o, c })
+        .GroupBy(x => x.c)
+        .Select(g => new CouriersPerformanceDto()
+        {
+            CourierId = g.Key.Id,
+            AvgTime = g.Average(x => (x.o.DeliveredAt.Value - x.o.CreatedAt).TotalMinutes),
+            Rating = g.Average(x => x.c.Rating)
+        }).ToListAsync();
+
+        return new Response<List<CouriersPerformanceDto>>(cur);
+
+    }
 
     // Task_20
     public async Task<Response<List<CourierEarningsDto>>> CouriersEarnings()

@@ -161,6 +161,7 @@ public class OrderService(DataContext context, Mapper mapper) : IOrderService
         return new Response<List<OrdersPeakHoursDto>>(result);
 
     }
+    // task_15
     public async Task<Response<List<OrdersAverageCheckDto>>> OrdersAverageCheck()
     {
         var res = await context.Orders
@@ -174,6 +175,21 @@ public class OrderService(DataContext context, Mapper mapper) : IOrderService
 
         return new Response<List<OrdersAverageCheckDto>>(res);
     }
+
+    // task_16
+    public async Task<Response<List<OrdersDeliveryTimeDto>>> OrdersDeliveryTime()
+    {
+        var order = await context.Orders.GroupBy(o => o.DeliveryAddress)
+        .Select(g => new OrdersDeliveryTimeDto
+        {
+            Address = g.Key,
+            Tome = g.Average(x => (x.DeliveredAt.Value - x.CreatedAt).TotalMinutes)
+        }).ToListAsync();
+
+        return new Response<List<OrdersDeliveryTimeDto>>(order);
+
+    }
+
 
 
 
