@@ -12,10 +12,14 @@ namespace Infrastructure.AutoMapper;
 public class InfrastructureProfile : Profile
 {
     public InfrastructureProfile()
+    
     {
-        CreateMap<User, GetUserDto>();
+        CreateMap<User, CreateUserDto>();
         CreateMap<CreateUserDto, User>();
         CreateMap<UpdateUserDto, User>();
+        CreateMap<User, UpdateUserDto>();
+        CreateMap<GetUserDto, User>();
+        CreateMap<User, GetUserDto>();
         CreateMap<Restaurant, GetRestaurantDto>();
         CreateMap<Courier, GetCourierDto>();
         CreateMap<Order, GetOrderDto>();

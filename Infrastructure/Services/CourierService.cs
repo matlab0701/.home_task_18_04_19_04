@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
-public class CourierService(DataContext context, Mapper mapper) : ICourierService
+public class CourierService(DataContext context, IMapper mapper) : ICourierService
 {
     public async Task<Response<GetCourierDto>> CreateAsync(CreateCourierDto request)
     {
@@ -138,7 +138,7 @@ public class CourierService(DataContext context, Mapper mapper) : ICourierServic
         var posMonth = DateTime.Now.AddMonths(-1);
         var result = await context.Orders.
         Where(c => c.CreatedAt >= posMonth).
-        GroupBy(o => o.Courier)
+        GroupBy(o => o.CourierId)
         .Select(g => new
         {
             CourierId = g.Key,

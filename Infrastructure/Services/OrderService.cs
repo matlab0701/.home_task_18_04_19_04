@@ -10,7 +10,7 @@ using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Services;
 
-public class OrderService(DataContext context, Mapper mapper) : IOrderService
+public class OrderService(DataContext context, IMapper mapper) : IOrderService
 {
     public async Task<Response<GetOrderDto>> CreateAsync(CreateOrderDto request)
     {

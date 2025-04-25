@@ -1,0 +1,44 @@
+@page
+@model RazorApp.Pages.User.Create
+
+<form method="post">
+    <div class="form-group">
+        <label for="exampleInputName1">Name</label>
+        <input asp-for="CreateUserDto.Name" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+        <span asp-validation-for="CreateUserDto.Name"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input asp-for="CreateUserDto.Email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <span asp-validation-for="CreateUserDto.Email"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPhone1">Phone</label>
+        <input asp-for="CreateUserDto.Phone" type="tel" class="form-control" id="exampleInputPhone1" placeholder="Phone">
+        <span asp-validation-for="CreateUserDto.Phone"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input asp-for="CreateUserDto.Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <span asp-validation-for="CreateUserDto.Password"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputAddress1">Address</label>
+        <input asp-for="CreateUserDto.Address" type="text" class="form-control" id="exampleInputAddress1" placeholder="Address">
+        <span asp-validation-for="CreateUserDto.Address"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputRole1">Role</label>
+        <input asp-for="CreateUserDto.Role" type="text" class="form-control" id="exampleInputRole1" placeholder="Role">
+        <span asp-validation-for="CreateUserDto.Role"></span>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div style="text-align: center">
+    @foreach (var message in Model.Message)
+    {
+        <p>@message</p>
+    }
+</div>

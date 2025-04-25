@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{717136B3-E491-4286-8742-7260ECE88C5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorApp", "RazorApp\RazorApp.csproj", "{80FA16AD-D4CE-42CB-A168-89251D444D29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{717136B3-E491-4286-8742-7260ECE88C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{717136B3-E491-4286-8742-7260ECE88C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{717136B3-E491-4286-8742-7260ECE88C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

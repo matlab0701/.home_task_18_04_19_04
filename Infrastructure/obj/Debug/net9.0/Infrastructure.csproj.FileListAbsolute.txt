@@ -13,3 +13,4 @@ C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\Infrastructure\obj\Debug\net9.0\refint\Infrastructure.dll
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\Infrastructure\obj\Debug\net9.0\Infrastructure.pdb
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\Infrastructure\obj\Debug\net9.0\ref\Infrastructure.dll
+C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\Infrastructure\obj\Debug\net9.0\Infrastructure.sourcelink.json

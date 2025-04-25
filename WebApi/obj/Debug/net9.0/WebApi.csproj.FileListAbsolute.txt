@@ -138,3 +138,4 @@ C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\WebApi\obj\Debug\net9.0\WebApi.pdb
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\WebApi\obj\Debug\net9.0\WebApi.genruntimeconfig.cache
 C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\WebApi\obj\Debug\net9.0\ref\WebApi.dll
+C:\Users\HP\Desktop\Dot.net\class_tasks\home_task\class_and_home_tasks_for_18_19_04\WebApi\obj\Debug\net9.0\WebApi.sourcelink.json

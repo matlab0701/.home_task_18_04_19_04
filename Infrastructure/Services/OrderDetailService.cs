@@ -9,7 +9,7 @@ using Infrastructure.Interfaces;
 
 namespace Infrastructure.Services;
 
-public class OrderDetailService(DataContext context, Mapper mapper) : IOrderDetailService
+public class OrderDetailService(DataContext context, IMapper mapper) : IOrderDetailService
 {
     public async Task<Response<GetOrderDetailDto>> CreateAsync(CreateOrderDetailDto request)
     {

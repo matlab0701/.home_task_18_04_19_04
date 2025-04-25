@@ -1,0 +1,33 @@
+@page
+@model RazorApp.Pages.User.Index
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Password</th>
+        <th scope="col">Address</th>
+        <th scope="col">Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        var count = 1;
+    }
+    @foreach (var student in Model.Users)
+    {
+        <tr>
+            <th scope="row">@(count++)</th>
+            <td>@student.Name</td>
+            <td>@student.Email</td>
+            <td>@student.Phone</td>
+            <td>@student.Password</td>
+            <td>@student.Address</td>
+            <td>@student.Role</td>
+        </tr>
+    }
+    </tbody>
+</table>

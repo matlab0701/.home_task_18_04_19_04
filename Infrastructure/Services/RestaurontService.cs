@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
-public class RestaurontService(DataContext context, Mapper mapper) : IRestaurontService
+public class RestaurontService(DataContext context, IMapper mapper) : IRestaurontService
 {
     public async Task<Response<GetRestaurantDto>> CreateAsync(CreateRestaurantDto request)
     {
