@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorApp", "RazorApp\RazorApp.csproj", "{80FA16AD-D4CE-42CB-A168-89251D444D29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{08CF9509-C45B-412B-AA5F-0F262C356145}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80FA16AD-D4CE-42CB-A168-89251D444D29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08CF9509-C45B-412B-AA5F-0F262C356145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CF9509-C45B-412B-AA5F-0F262C356145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CF9509-C45B-412B-AA5F-0F262C356145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CF9509-C45B-412B-AA5F-0F262C356145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -26,6 +26,9 @@ public class InfrastructureProfile : Profile
         CreateMap<OrderDetail, GetOrderDetailDto>();
         CreateMap<Menu, GetMenuDto>();
 
+        CreateMap<CreateUserDto, User>();
+
+
     }
 
 }

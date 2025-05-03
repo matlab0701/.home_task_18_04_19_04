@@ -1,0 +1,40 @@
+@page "/users/delete/{id:int}"
+@inject NavigationManager Navigation
+@using Domain.DTOs.Users
+@using Infrastructure.Interfaces
+@using MudBlazor
+@inject IUserService UserService
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-6">
+    <MudText Typo="Typo.h5" GutterBottom>Delete User</MudText>
+
+    @if (user is not null)
+    {
+        <MudPaper Elevation="4" Class="pa-6 rounded-xl">
+            <MudText>Are you sure you want to delete <b>@user.Name</b>?</MudText>
+
+            <MudStack Row Spacing="2" Class="mt-4">
+                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="ConfirmDelete">Delete</MudButton>
+                <MudButton Variant="Variant.Outlined" OnClick="@(() => Navigation.NavigateTo("/users"))">Cancel</MudButton>
+            </MudStack>
+        </MudPaper>
+    }
+</MudContainer>
+
+@code {
+    [Parameter] public int id { get; set; }
+
+    private GetUserDto? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await UserService.GetUserAsync(id);
+        user = result.Data;
+    }
+
+    private async Task ConfirmDelete()
+    {
+        await UserService.DeleteAsync(id);
+        Navigation.NavigateTo("/users");
+    }
+}

@@ -1,0 +1,35 @@
+@page "/users/details/{id:int}"
+@inject NavigationManager Navigation
+@using Domain.DTOs.Users
+@using Infrastructure.Interfaces
+@using MudBlazor
+@inject IUserService UserService
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-6">
+    <MudText Typo="Typo.h5" GutterBottom>User Details</MudText>
+
+    @if (user is not null)
+    {
+        <MudPaper Elevation="4" Class="pa-6 rounded-xl">
+            <MudText><b>Name:</b> @user.Name</MudText>
+            <MudText><b>Email:</b> @user.Email</MudText>
+            <MudText><b>Phone:</b> @user.Phone</MudText>
+            <MudText><b>Address:</b> @user.Address</MudText>
+            <MudText><b>Role:</b> @user.Role</MudText>
+
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" Class="mt-4" OnClick="@(() => Navigation.NavigateTo("/users"))">Back</MudButton>
+        </MudPaper>
+    }
+</MudContainer>
+
+@code {
+    [Parameter] public int id { get; set; }
+
+    private GetUserDto? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await UserService.GetUserAsync(id);
+        user = result.Data;
+    }
+}

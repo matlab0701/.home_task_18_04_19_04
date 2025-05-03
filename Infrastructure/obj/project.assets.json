@@ -844,11 +844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -865,8 +865,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\Domain\\Domain.csproj"
+            "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\Domain\\Domain.csproj"
             }
           }
         }

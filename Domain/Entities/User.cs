@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Enums;
 
 namespace Domain.Entities;
 
+[Table("Users")]
 public class User
 {
     public int Id { get; set; }

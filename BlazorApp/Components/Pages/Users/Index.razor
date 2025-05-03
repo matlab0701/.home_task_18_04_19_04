@@ -1,0 +1,78 @@
+@page "/users"
+@using Domain.DTOs.Users
+@inject NavigationManager Navigation
+@using Infrastructure.Interfaces
+@using MudBlazor
+@using MudBlazor.Components
+@inject IUserService UserService
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6">
+    <MudStack Row style="display:flex; justify-content: space-between; align-items: center;" Class="mb-4">
+        <MudText Typo="Typo.h4">Users</MudText>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@NavigateToCreate">
+            + Add New
+        </MudButton>
+    </MudStack>
+
+    <MudGrid GutterSize="3">
+        @if (users is null || users.Count == 0)
+        {
+            <MudItem xs="12">
+                <MudPaper Class="pa-6 text-center">No users found.</MudPaper>
+            </MudItem>
+        }
+        else
+        {
+            @foreach (var user in users)
+            {
+                <MudItem xs="12" sm="6" md="4" lg="3">
+                    <MudPaper Class="pa-4 rounded-xl shadow-sm">
+                        <MudText Typo="Typo.h6">@user.Name</MudText>
+                        <MudText><b>Email:</b> @user.Email</MudText>
+                        <MudText><b>Phone:</b> @user.Phone</MudText>
+                        <MudText><b>Address:</b> @user.Address</MudText>
+                        <MudText><b>Role:</b> @user.Role</MudText>
+                        <MudText><b>Address:</b> @user.Address</MudText>
+
+                        <MudStack Row Spacing="1" Class="mt-3">
+                            <MudButton Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
+                                       OnClick="@(() => NavigateToEdit(user.Id))">
+                                Edit
+                            </MudButton>
+                            <MudButton Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small"
+                                       OnClick="@(() => NavigateToDelete(user.Id))">
+                                Delete
+                            </MudButton>
+                            <MudButton Variant="Variant.Text" Size="Size.Small"
+                                       OnClick="@(() => NavigateToDetails(user.Id))">
+                                Details
+                            </MudButton>
+                        </MudStack>
+                    </MudPaper>
+                </MudItem>
+            }
+        }
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private List<GetUserDto> users = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await UserService.GetAllAsync(new());
+        if (result.IsSuccess && result.Data is not null)
+        {
+            users = result.Data;
+        }
+    }
+
+    void NavigateToCreate() => Navigation.NavigateTo("/users/create");
+
+    void NavigateToEdit(int id) => Navigation.NavigateTo($"/users/edit/{id}");
+
+    void NavigateToDetails(int id) => Navigation.NavigateTo($"/users/details/{id}");
+
+    void NavigateToDelete(int id) => Navigation.NavigateTo($"/users/delete/{id}");
+}

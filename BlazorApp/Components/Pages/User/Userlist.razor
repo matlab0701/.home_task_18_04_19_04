@@ -1,0 +1,71 @@
+@page "/user"
+@using Domain.DTOs.Users
+@using Domain.Filters
+@using Infrastructure.Interfaces
+@using MudBlazor
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject IUserService userservice
+
+
+<h3>Users</h3>
+
+<div class="d-flex justify-content-end">
+    <button class="btn btn-primary mb-4" style="background-color: #4A3AFF" @onclick="NavigateToCreate">
+        + Add new
+    </button>
+</div>
+
+<div class="row">
+    @foreach (var user in users)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 border-0 shadow rounded-4 pt-8">
+                <img
+                    src="https://media.licdn.com/dms/image/v2/D4E03AQG9RFd4rzCQWA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722158955520?e=2147483647&v=beta&t=8fgpcO0wNWkfHDJRUHORsxot_ivgQpHmIYO2YtxbA3Q"
+                    class="card-img-top w-75 m-auto" alt="Student Photo">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-1">@user.Name</h5>
+                    @* <p class="card-title mb-1">Age: @(DateTime.Now.Year - @user.BirthDate.Year)</p> *@
+                    <p class="card-title mb-1">Email: @user.Email</p>
+                    <p class="card-title mb-1">Phone: @user.Phone</p>
+                    <p class="card-title mb-1">Password: @user.Password</p>
+                    <p class="card-title mb-1">Address: @user.Address</p>
+                    <p class="card-title mb-1">Role: @user.Role</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button @onclick="() => NavigateToEdit(user.Id)" class="btn btn-sm btn-outline-primary rounded-pill" style=" padding-right: 20px">
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Medium"/>
+                            Edit
+
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger rounded-pill" style="padding-right: 20px">
+                            <MudIconButton Icon="@Icons.Material.Filled.Delete" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Medium"/>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code {
+    private List<GetUserDto> users = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await userservice.GetAllAsync(new UserFilters());
+        users = response.Data!;
+    }
+
+    void NavigateToCreate()
+    {
+        Navigation.NavigateTo("/user/create");
+    }
+    
+    void NavigateToEdit(int id)
+    {
+        Navigation.NavigateTo($"/user/edit/{id}");
+    }
+}

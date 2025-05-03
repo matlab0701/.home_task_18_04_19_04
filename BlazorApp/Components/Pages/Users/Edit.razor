@@ -1,0 +1,68 @@
+@page "/users/edit/{id:int}"
+@inject NavigationManager Navigation
+@using Domain.DTOs.Users
+@using Infrastructure.Interfaces
+@using MudBlazor
+@inject IUserService UserService
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-6">
+    <MudText Typo="Typo.h5" GutterBottom>Edit User</MudText>
+
+    @if (user is not null)
+    {
+        <MudPaper Elevation="4" Class="pa-6 rounded-xl">
+            <EditForm Model="@user" OnValidSubmit="HandleValidSubmit">
+                <MudTextField @bind-Value="user.Name" Label="Name" Required="true" />
+                <MudTextField @bind-Value="user.Email" Label="Email" Required="true" />
+                <MudTextField @bind-Value="user.Phone" Label="Phone" />
+                <MudTextField @bind-Value="user.Password" Label="Password" InputType="InputType.Password" />
+                <MudTextField @bind-Value="user.Address" Label="Address" />
+                <MudSelect @bind-Value="user.Role" Label="Role">
+                    <MudSelectItem Value="user">User</MudSelectItem>
+                </MudSelect>
+
+                <MudStack Row Spacing="2" Class="mt-4">
+                    <MudButton Type="Submit" Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+                    <MudButton Variant="Variant.Outlined" OnClick="@Cancel">Cancel</MudButton>
+                </MudStack>
+            </EditForm>
+        </MudPaper>
+    }
+</MudContainer>
+
+@code {
+    [Parameter] public int id { get; set; }
+
+    private UpdateUserDto user = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await UserService.GetUserAsync(id);
+        var data = result.Data;
+
+        if (data is not null)
+        {
+            user = new UpdateUserDto
+            {
+                Id = data.Id,
+                Name = data.Name,
+                Email = data.Email,
+                Phone = data.Phone,
+                Password = data.Password,
+                Address = data.Address,
+                Role = data.Role
+            };
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        var result = await UserService.UpDateAsync(id,user);
+        if (result.IsSuccess)
+        {
+            Navigation.NavigateTo("/users");
+        }
+    }
+
+    void Cancel() => Navigation.NavigateTo("/users");
+}

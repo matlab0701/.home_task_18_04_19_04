@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ROJIaG4DQBE=",
+  "dgSpecHash": "UYrQfEJg5iI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\Dot.net\\class_tasks\\home_task\\class_and_home_tasks_for_18_19_04\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\Web_Projects\\home_tasks\\class_and_home_tasks_for_18_19_04\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
